@@ -1,6 +1,27 @@
 @CoctelIQ.Api_HostAddress = http://localhost:5263
 
-GET {{CoctelIQ.Api_HostAddress}}/weatherforecast/
+### Registrar un usuario
+POST {{CoctelIQ.Api_HostAddress}}/api/auth/registro
+Content-Type: application/json
+
+{
+  "nombreUsuario": "bartender_tucu",
+  "email": "matias@example.com",
+  "password": "Negroni2026!"
+}
+
+### Login (copiá el "token" de la respuesta)
+POST {{CoctelIQ.Api_HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "matias@example.com",
+  "password": "Negroni2026!"
+}
+
+### Perfil del usuario autenticado (reemplazá TOKEN)
+GET {{CoctelIQ.Api_HostAddress}}/api/usuarios/me
+Authorization: Bearer TOKEN
 Accept: application/json
 
 ###
