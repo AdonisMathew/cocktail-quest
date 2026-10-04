@@ -5,16 +5,17 @@
 ![Status](https://img.shields.io/badge/status-en%20desarrollo-yellow)
 ![.NET](https://img.shields.io/badge/.NET-10-512BD4)
 ![License](https://img.shields.io/badge/license-MIT-blue)
+![Backend CI](https://github.com/AdonisMathew/coctel-iq/actions/workflows/backend-ci.yml/badge.svg)
 
 ## 📖 Sobre el proyecto
 
 CoctelIQ nace de combinar dos mundos: bartending profesional y desarrollo de software. La idea es aprender (y enseñar) coctelería de forma gamificada — lecciones cortas, quizzes, recetas, y un sistema de progreso que premia la constancia (rachas, XP, niveles, ranking).
 
-Es también un proyecto de portfolio: documentado, versionado y desarrollado siguiendo buenas prácticas de ingeniería de software (arquitectura en capas, control de versiones con Git Flow, testing, CI/CD).
+Es también un proyecto de portfolio: documentado, versionado y desarrollado siguiendo buenas prácticas de ingeniería de software (arquitectura en capas, control de versiones con ramas por feature y Pull Requests, testing, CI/CD).
 
 ## ✨ Features (MVP)
 
-- [ ] **Autenticación de usuarios** (registro, login, JWT)
+- [x] **Autenticación de usuarios** (registro, login, JWT)
 - [ ] **Lecciones y módulos** organizados por categoría (espirituosos, técnicas, historia, mixología)
 - [ ] **Quizzes interactivos** con corrección automática
 - [ ] **Catálogo de recetas** de cócteles con ingredientes, pasos y dificultad
@@ -29,11 +30,11 @@ Es también un proyecto de portfolio: documentado, versionado y desarrollado sig
 | Backend | ASP.NET Core 10 Web API (C#) |
 | ORM | Entity Framework Core |
 | Base de datos | PostgreSQL |
-| Autenticación | JWT + ASP.NET Identity |
+| Autenticación | JWT (hash de contraseñas con `PasswordHasher` de ASP.NET Core Identity) |
 | Frontend | *(a definir)* |
 | Testing | xUnit |
 | Documentación API | Swagger / OpenAPI |
-| Control de versiones | Git (Git Flow) |
+| Control de versiones | Git (`main` + ramas `feature/*`) |
 
 ## 📂 Estructura del repositorio
 
@@ -42,7 +43,10 @@ coctel-iq/
 ├── backend/          # API en ASP.NET Core
 ├── frontend/         # Cliente web
 ├── docs/             # Documentación técnica (arquitectura, DB, decisiones)
-│   └── database-design.md
+│   ├── api.md
+│   ├── database-design.md
+│   ├── setup-local.md
+│   └── workflow.md
 └── README.md
 ```
 
@@ -50,8 +54,8 @@ coctel-iq/
 
 | Sprint | Objetivo | Estado |
 |---|---|---|
-| 0 | Setup del repo, documentación, diseño de base de datos | 🟡 En curso |
-| 1 | API base: Usuarios + Autenticación (JWT) | ⬜ Pendiente |
+| 0 | Setup del repo, documentación, diseño de base de datos | ✅ Terminado |
+| 1 | API base: Usuarios + Autenticación (JWT) | 🟡 En revisión |
 | 2 | Lecciones + Preguntas + lógica de quiz | ⬜ Pendiente |
 | 3 | Catálogo de Cócteles/Recetas | ⬜ Pendiente |
 | 4 | Progreso de usuario, XP y niveles | ⬜ Pendiente |
@@ -61,7 +65,14 @@ coctel-iq/
 
 ## 🚀 Cómo correr el proyecto
 
-*(Se completa en el Sprint 1, cuando exista código funcional)*
+Requisitos: [.NET 10 SDK](https://dotnet.microsoft.com/download) y PostgreSQL.
+
+```bash
+cd backend/CoctelIQ.Api
+dotnet run
+```
+
+Antes de la primera vez hay que crear `appsettings.Development.json` con el connection string y la clave JWT: los pasos están en [`docs/setup-local.md`](./docs/setup-local.md). Con la API corriendo, Swagger queda en `http://localhost:5263/swagger`. Los endpoints están documentados en [`docs/api.md`](./docs/api.md).
 
 ## 🧠 Decisiones de diseño
 

@@ -1,68 +1,69 @@
-# Setup local (Sprint 0 → Sprint 1)
+# Setup local
 
-Estos son los pasos para inicializar el proyecto en tu máquina una vez que descargues esta estructura base.
+Cómo levantar el backend de CoctelIQ en tu máquina.
 
-## 1. Inicializar Git
+## Requisitos
 
-```bash
-cd coctel-iq
-git init
-git add .
-git commit -m "chore: estructura inicial del proyecto y documentación (Sprint 0)"
-```
+- [.NET 10 SDK](https://dotnet.microsoft.com/download)
+- PostgreSQL con una base llamada `coctel_iq_db`
+- Git
 
-Creá el repo en GitHub (vacío, sin README) y conectalo:
+## 1. Clonar el repo
 
 ```bash
-git remote add origin https://github.com/AdonisMathew/coctel-iq.git
-git branch -M main
-git push -u origin main
+git clone https://github.com/AdonisMathew/coctel-iq.git
+cd coctel-iq/backend/CoctelIQ.Api
 ```
 
-## 2. Crear el proyecto ASP.NET Core
+## 2. Configuración local con secretos
 
-Requisitos: [.NET 10 SDK](https://dotnet.microsoft.com/download) instalado.
+Creá `backend/CoctelIQ.Api/appsettings.Development.json`. Este archivo está en el `.gitignore`: tiene contraseñas, **nunca se sube a GitHub**.
 
-```bash
-cd backend
-dotnet new webapi -n CoctelIQ.Api -controllers
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=localhost;Database=coctel_iq_db;Username=postgres;Password=TU_PASSWORD"
+  },
+  "Jwt": {
+    "Key": "UNA_CLAVE_LARGA_Y_ALEATORIA_DE_AL_MENOS_32_CARACTERES"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  }
+}
 ```
 
-El flag `-controllers` usa controladores tradicionales (más fácil de entender al principio) en vez de Minimal APIs. Podemos migrar a Minimal APIs más adelante si querés practicar ese enfoque también.
+- `DefaultConnection`: los datos de tu PostgreSQL local.
+- `Jwt:Key`: la clave con la que se firman los tokens. Mínimo 32 caracteres. Si falta, la API no arranca y te lo dice.
+- El resto de la configuración JWT (`Issuer`, `Audience`, `ExpiracionMinutos`) no es secreta y está en `appsettings.json`.
 
-## 3. Paquetes NuGet que vamos a necesitar (Sprint 1)
+ASP.NET Core combina los dos archivos: primero lee `appsettings.json` y después pisa o agrega lo que haya en `appsettings.Development.json`.
 
-```bash
-cd CoctelIQ.Api
-dotnet add package Microsoft.EntityFrameworkCore.Design
-dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL
-dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
-dotnet add package Swashbuckle.AspNetCore
-```
-
-## 4. Verificar que corre
+## 3. Correr la API
 
 ```bash
 dotnet run
 ```
 
-Deberías ver la API arrancar y poder abrir Swagger en `https://localhost:XXXX/swagger`.
+En desarrollo, al arrancar la API aplica sola las migraciones pendientes (`Database.Migrate()` en `Program.cs`), así que las tablas se crean en el primer `dotnet run`. Después abrí Swagger en `http://localhost:5263/swagger`.
 
-## 5. Confirmar rama de trabajo (Git Flow simplificado)
+## 4. Migraciones (cuando cambie el modelo)
 
-Vamos a trabajar con:
-
-- `main` → siempre estable, deployable
-- `develop` → integración de features
-- `feature/nombre-feature` → una rama por feature, mergeada a `develop` vía Pull Request
+Cada vez que agregues o cambies una entidad, generá una migración nueva:
 
 ```bash
-git checkout -b develop
-git push -u origin develop
+dotnet tool install --global dotnet-ef   # solo la primera vez
+dotnet ef migrations add NombreDelCambio
 ```
 
-Cuando arranquemos el Sprint 1 (Usuarios + Auth), creamos `feature/auth-usuarios` desde `develop`.
+Se crea un archivo en `Migrations/` que **sí se sube al repo**. Para aplicarla podés volver a correr la API, o usar `dotnet ef database update`.
 
----
+## 5. Flujo de ramas
 
-**Avisame cuando tengas esto corriendo localmente y seguimos con el Sprint 1: el modelo de Usuario, el DbContext y la configuración de PostgreSQL.**
+- `main` → siempre estable.
+- `feature/nombre-feature` → una rama por feature o sprint, que se mergea a `main` con un Pull Request.
+
+El Pull Request corre el CI (`.github/workflows/backend-ci.yml`): compila el backend y verifica que no falten migraciones.
