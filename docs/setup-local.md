@@ -1,28 +1,28 @@
 # Setup local
 
-Cómo levantar el backend de CoctelIQ en tu máquina.
+Cómo levantar el backend de CocktailQuest en tu máquina.
 
 ## Requisitos
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download)
-- PostgreSQL con una base llamada `coctel_iq_db`
+- PostgreSQL con una base llamada `cocktail_quest_db`
 - Git
 
 ## 1. Clonar el repo
 
 ```bash
-git clone https://github.com/AdonisMathew/coctel-iq.git
-cd coctel-iq/backend/CoctelIQ.Api
+git clone https://github.com/AdonisMathew/cocktail-quest.git
+cd cocktail-quest/backend/CocktailQuest.Api
 ```
 
 ## 2. Configuración local con secretos
 
-Creá `backend/CoctelIQ.Api/appsettings.Development.json`. Este archivo está en el `.gitignore`: tiene contraseñas, **nunca se sube a GitHub**.
+Creá `backend/CocktailQuest.Api/appsettings.Development.json`. Este archivo está en el `.gitignore`: tiene contraseñas, **nunca se sube a GitHub**.
 
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Host=localhost;Database=coctel_iq_db;Username=postgres;Password=TU_PASSWORD"
+    "DefaultConnection": "Host=localhost;Database=cocktail_quest_db;Username=postgres;Password=TU_PASSWORD"
   },
   "Jwt": {
     "Key": "UNA_CLAVE_LARGA_Y_ALEATORIA_DE_AL_MENOS_32_CARACTERES"

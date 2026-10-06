@@ -1,6 +1,6 @@
-using CoctelIQ.Api.Models;
+using CocktailQuest.Api.Models;
 
-namespace CoctelIQ.Api.Dtos.Usuarios;
+namespace CocktailQuest.Api.Dtos.Usuarios;
 
 /// <summary>
 /// Datos públicos de un usuario. Nunca incluye el PasswordHash.

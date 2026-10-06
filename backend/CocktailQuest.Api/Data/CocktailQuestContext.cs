@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using CoctelIQ.Api.Models;
+using CocktailQuest.Api.Models;
 
-namespace CoctelIQ.Api.Data;
+namespace CocktailQuest.Api.Data;
 
-public class CoctelIQContext : DbContext
+public class CocktailQuestContext : DbContext
 {
-	public CoctelIQContext(DbContextOptions<CoctelIQContext> options)
+	public CocktailQuestContext(DbContextOptions<CocktailQuestContext> options)
 		: base(options)
 	{
 	}

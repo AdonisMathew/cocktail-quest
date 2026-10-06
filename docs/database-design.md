@@ -130,5 +130,5 @@ Por ahora es de solo lectura (contenido curado por nosotros), no hay relación c
 ## Decisiones pendientes / a revisar en Sprint 1
 
 - [ ] ¿`TipoPregunta` es un enum en C# o una tabla separada? → Por simplicidad, arrancamos con enum.
-- [x] ¿Los índices en `Email` y `NombreUsuario` deben ser únicos? → Sí. Definido con Fluent API en `CoctelIQContext.OnModelCreating` (Email máx. 256 caracteres, NombreUsuario máx. 50).
+- [x] ¿Los índices en `Email` y `NombreUsuario` deben ser únicos? → Sí. Definido con Fluent API en `CocktailQuestContext.OnModelCreating` (Email máx. 256 caracteres, NombreUsuario máx. 50).
 - [ ] ¿Soft delete o delete físico? → A definir cuando implementemos el CRUD de usuarios.

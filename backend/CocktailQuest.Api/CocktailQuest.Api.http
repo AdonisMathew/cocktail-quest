@@ -1,7 +1,7 @@
-@CoctelIQ.Api_HostAddress = http://localhost:5263
+@CocktailQuest.Api_HostAddress = http://localhost:5263
 
 ### Registrar un usuario
-POST {{CoctelIQ.Api_HostAddress}}/api/auth/registro
+POST {{CocktailQuest.Api_HostAddress}}/api/auth/registro
 Content-Type: application/json
 
 {
@@ -11,7 +11,7 @@ Content-Type: application/json
 }
 
 ### Login (copiá el "token" de la respuesta)
-POST {{CoctelIQ.Api_HostAddress}}/api/auth/login
+POST {{CocktailQuest.Api_HostAddress}}/api/auth/login
 Content-Type: application/json
 
 {
@@ -20,7 +20,7 @@ Content-Type: application/json
 }
 
 ### Perfil del usuario autenticado (reemplazá TOKEN)
-GET {{CoctelIQ.Api_HostAddress}}/api/usuarios/me
+GET {{CocktailQuest.Api_HostAddress}}/api/usuarios/me
 Authorization: Bearer TOKEN
 Accept: application/json
 

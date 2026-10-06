@@ -1,14 +1,14 @@
-using CoctelIQ.Api.Data;
-using CoctelIQ.Api.Dtos.Auth;
-using CoctelIQ.Api.Dtos.Usuarios;
-using CoctelIQ.Api.Models;
-using CoctelIQ.Api.Services;
+using CocktailQuest.Api.Data;
+using CocktailQuest.Api.Dtos.Auth;
+using CocktailQuest.Api.Dtos.Usuarios;
+using CocktailQuest.Api.Models;
+using CocktailQuest.Api.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 
-namespace CoctelIQ.Api.Controllers;
+namespace CocktailQuest.Api.Controllers;
 
 /// <summary>
 /// Registro e inicio de sesión.
@@ -18,12 +18,12 @@ namespace CoctelIQ.Api.Controllers;
 [Produces("application/json")]
 public class AuthController : ControllerBase
 {
-    private readonly CoctelIQContext _context;
+    private readonly CocktailQuestContext _context;
     private readonly IPasswordHasher<Usuario> _passwordHasher;
     private readonly ITokenService _tokenService;
 
     public AuthController(
-        CoctelIQContext context,
+        CocktailQuestContext context,
         IPasswordHasher<Usuario> passwordHasher,
         ITokenService tokenService)
     {

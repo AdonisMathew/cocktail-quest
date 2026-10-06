@@ -1,10 +1,10 @@
 using System.Reflection;
 using System.Text;
-using CoctelIQ.Api.Configuration;
-using CoctelIQ.Api.Data;
-using CoctelIQ.Api.Models;
-using CoctelIQ.Api.Services;
-using CoctelIQ.Api.Swagger;
+using CocktailQuest.Api.Configuration;
+using CocktailQuest.Api.Data;
+using CocktailQuest.Api.Models;
+using CocktailQuest.Api.Services;
+using CocktailQuest.Api.Swagger;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -17,7 +17,7 @@ var builder = WebApplication.CreateBuilder(args);
 // ---------- Base de datos ----------
 // Registra el DbContext en el contenedor de Dependency Injection.
 // El connection string se lee de appsettings.Development.json ("ConnectionStrings:DefaultConnection").
-builder.Services.AddDbContext<CoctelIQContext>(options =>
+builder.Services.AddDbContext<CocktailQuestContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // ---------- Autenticación JWT ----------
@@ -74,9 +74,9 @@ builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "CoctelIQ API",
+        Title = "CocktailQuest API",
         Version = "v1",
-        Description = "API de CoctelIQ: aprendé bartending y coctelería al estilo Duolingo."
+        Description = "API de CocktailQuest: aprendé bartending y coctelería al estilo Duolingo."
     });
 
     // Botón "Authorize" en Swagger UI para probar endpoints protegidos con un JWT.
@@ -102,14 +102,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(options =>
     {
-        options.SwaggerEndpoint("/swagger/v1/swagger.json", "CoctelIQ API v1");
-        options.DocumentTitle = "CoctelIQ API";
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "CocktailQuest API v1");
+        options.DocumentTitle = "CocktailQuest API";
     });
 
     // Solo en desarrollo: aplica las migraciones pendientes al arrancar,
     // así la base local siempre queda al día sin correr "dotnet ef database update".
     using var scope = app.Services.CreateScope();
-    var db = scope.ServiceProvider.GetRequiredService<CoctelIQContext>();
+    var db = scope.ServiceProvider.GetRequiredService<CocktailQuestContext>();
     db.Database.Migrate();
 }
 

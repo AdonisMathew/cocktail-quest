@@ -1,15 +1,15 @@
-# 🍸 CoctelIQ
+# 🍸 CocktailQuest
 
 > Una plataforma estilo Duolingo para aprender bartending: cócteles, técnicas y teoría de coctelería, con lecciones, quizzes y gamificación.
 
 ![Status](https://img.shields.io/badge/status-en%20desarrollo-yellow)
 ![.NET](https://img.shields.io/badge/.NET-10-512BD4)
 ![License](https://img.shields.io/badge/license-MIT-blue)
-![Backend CI](https://github.com/AdonisMathew/coctel-iq/actions/workflows/backend-ci.yml/badge.svg)
+![Backend CI](https://github.com/AdonisMathew/cocktail-quest/actions/workflows/backend-ci.yml/badge.svg)
 
 ## 📖 Sobre el proyecto
 
-CoctelIQ nace de combinar dos mundos: bartending profesional y desarrollo de software. La idea es aprender (y enseñar) coctelería de forma gamificada — lecciones cortas, quizzes, recetas, y un sistema de progreso que premia la constancia (rachas, XP, niveles, ranking).
+CocktailQuest nace de combinar dos mundos: bartending profesional y desarrollo de software. La idea es aprender (y enseñar) coctelería de forma gamificada — lecciones cortas, quizzes, recetas, y un sistema de progreso que premia la constancia (rachas, XP, niveles, ranking).
 
 Es también un proyecto de portfolio: documentado, versionado y desarrollado siguiendo buenas prácticas de ingeniería de software (arquitectura en capas, control de versiones con ramas por feature y Pull Requests, testing, CI/CD).
 
@@ -39,7 +39,7 @@ Es también un proyecto de portfolio: documentado, versionado y desarrollado sig
 ## 📂 Estructura del repositorio
 
 ```
-coctel-iq/
+cocktail-quest/
 ├── backend/          # API en ASP.NET Core
 ├── frontend/         # Cliente web
 ├── docs/             # Documentación técnica (arquitectura, DB, decisiones)
@@ -55,7 +55,7 @@ coctel-iq/
 | Sprint | Objetivo | Estado |
 |---|---|---|
 | 0 | Setup del repo, documentación, diseño de base de datos | ✅ Terminado |
-| 1 | API base: Usuarios + Autenticación (JWT) | 🟡 En revisión |
+| 1 | API base: Usuarios + Autenticación (JWT) | ✅ Terminado |
 | 2 | Lecciones + Preguntas + lógica de quiz | ⬜ Pendiente |
 | 3 | Catálogo de Cócteles/Recetas | ⬜ Pendiente |
 | 4 | Progreso de usuario, XP y niveles | ⬜ Pendiente |
@@ -68,7 +68,7 @@ coctel-iq/
 Requisitos: [.NET 10 SDK](https://dotnet.microsoft.com/download) y PostgreSQL.
 
 ```bash
-cd backend/CoctelIQ.Api
+cd backend/CocktailQuest.Api
 dotnet run
 ```
 

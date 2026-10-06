@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace CoctelIQ.Api.Migrations
+namespace CocktailQuest.Api.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration

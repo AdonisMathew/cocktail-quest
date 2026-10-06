@@ -1,12 +1,12 @@
 using System.Security.Claims;
-using CoctelIQ.Api.Data;
-using CoctelIQ.Api.Dtos.Usuarios;
+using CocktailQuest.Api.Data;
+using CocktailQuest.Api.Dtos.Usuarios;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.JsonWebTokens;
 
-namespace CoctelIQ.Api.Controllers;
+namespace CocktailQuest.Api.Controllers;
 
 /// <summary>
 /// Datos del usuario autenticado. Todos los endpoints requieren token.
@@ -17,9 +17,9 @@ namespace CoctelIQ.Api.Controllers;
 [Produces("application/json")]
 public class UsuariosController : ControllerBase
 {
-    private readonly CoctelIQContext _context;
+    private readonly CocktailQuestContext _context;
 
-    public UsuariosController(CoctelIQContext context)
+    public UsuariosController(CocktailQuestContext context)
     {
         _context = context;
     }

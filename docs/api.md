@@ -94,7 +94,7 @@ Valida las credenciales y devuelve un token. Público.
 | `unique_name` | Nombre de usuario |
 | `email` | Email |
 | `jti` | Id único del token |
-| `iss` / `aud` | `CoctelIQ.Api` / `CoctelIQ.Client` |
+| `iss` / `aud` | `CocktailQuest.Api` / `CocktailQuest.Client` |
 | `exp` | Vencimiento |
 
 ---
