@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace CoctelIQ.Api.Swagger;
+namespace CocktailQuest.Api.Swagger;
 
 /// <summary>
 /// Marca con candado en Swagger solo los endpoints que tienen [Authorize],

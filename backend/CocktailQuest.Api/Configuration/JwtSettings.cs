@@ -1,4 +1,4 @@
-namespace CoctelIQ.Api.Configuration;
+namespace CocktailQuest.Api.Configuration;
 
 /// <summary>
 /// Configuración de los tokens JWT. Se lee de la sección "Jwt" de appsettings.

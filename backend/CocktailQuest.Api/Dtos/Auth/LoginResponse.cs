@@ -1,6 +1,6 @@
-using CoctelIQ.Api.Dtos.Usuarios;
+using CocktailQuest.Api.Dtos.Usuarios;
 
-namespace CoctelIQ.Api.Dtos.Auth;
+namespace CocktailQuest.Api.Dtos.Auth;
 
 /// <summary>
 /// Respuesta de un login exitoso.

@@ -11,7 +11,7 @@ Este documento existe para que, si en algún momento arrancás una conversación
 ## Cómo arrancar una conversación nueva con Claude
 
 Si empezás un chat nuevo para seguir con el proyecto, contale:
-1. Que estás trabajando en CoctelIQ (Claude ya tiene memoria de conversaciones anteriores sobre esto)
+1. Que estás trabajando en CocktailQuest (Claude ya tiene memoria de conversaciones anteriores sobre esto)
 2. En qué sprint/Issue estás parado
 3. Pegale o linkeá el archivo de `docs/` relevante si el chat lo necesita como contexto
 

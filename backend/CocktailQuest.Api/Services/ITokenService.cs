@@ -1,6 +1,6 @@
-using CoctelIQ.Api.Models;
+using CocktailQuest.Api.Models;
 
-namespace CoctelIQ.Api.Services;
+namespace CocktailQuest.Api.Services;
 
 /// <summary>
 /// Token generado y su fecha de expiración.

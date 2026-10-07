@@ -1,11 +1,11 @@
 using System.Text;
-using CoctelIQ.Api.Configuration;
-using CoctelIQ.Api.Models;
+using CocktailQuest.Api.Configuration;
+using CocktailQuest.Api.Models;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
 
-namespace CoctelIQ.Api.Services;
+namespace CocktailQuest.Api.Services;
 
 public class TokenService : ITokenService
 {

@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: backend/CoctelIQ.Api
+        working-directory: backend/CocktailQuest.Api
     env:
       # Valores de prueba solo para el CI: no se conecta a ninguna base.
       ConnectionStrings__DefaultConnection: "Host=localhost;Database=ci;Username=ci;Password=ci"

@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace CoctelIQ.Api.Dtos.Auth;
+namespace CocktailQuest.Api.Dtos.Auth;
 
 /// <summary>
 /// Datos para registrar un usuario nuevo.

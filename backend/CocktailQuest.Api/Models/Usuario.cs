@@ -1,4 +1,4 @@
-﻿namespace CoctelIQ.Api.Models;
+﻿namespace CocktailQuest.Api.Models;
 
 public class Usuario
 {
