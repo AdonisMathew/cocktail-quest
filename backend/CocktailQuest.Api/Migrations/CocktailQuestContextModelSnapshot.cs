@@ -22,6 +22,123 @@ namespace CocktailQuest.Api.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("CocktailQuest.Api.Models.Leccion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Contenido")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("ModuloId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Orden")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Titulo")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("character varying(150)");
+
+                    b.Property<int>("XpRecompensa")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ModuloId", "Orden")
+                        .IsUnique();
+
+                    b.ToTable("Lecciones");
+                });
+
+            modelBuilder.Entity("CocktailQuest.Api.Models.Modulo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<int>("Orden")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Orden")
+                        .IsUnique();
+
+                    b.ToTable("Modulos");
+                });
+
+            modelBuilder.Entity("CocktailQuest.Api.Models.Opcion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("EsCorrecta")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("PreguntaId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Texto")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PreguntaId");
+
+                    b.ToTable("Opciones");
+                });
+
+            modelBuilder.Entity("CocktailQuest.Api.Models.Pregunta", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Enunciado")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
+
+                    b.Property<int>("LeccionId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("TipoPregunta")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("character varying(30)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LeccionId");
+
+                    b.ToTable("Preguntas");
+                });
+
             modelBuilder.Entity("CocktailQuest.Api.Models.Usuario", b =>
                 {
                     b.Property<int>("Id")
@@ -62,6 +179,54 @@ namespace CocktailQuest.Api.Migrations
                         .IsUnique();
 
                     b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("CocktailQuest.Api.Models.Leccion", b =>
+                {
+                    b.HasOne("CocktailQuest.Api.Models.Modulo", "Modulo")
+                        .WithMany("Lecciones")
+                        .HasForeignKey("ModuloId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Modulo");
+                });
+
+            modelBuilder.Entity("CocktailQuest.Api.Models.Opcion", b =>
+                {
+                    b.HasOne("CocktailQuest.Api.Models.Pregunta", "Pregunta")
+                        .WithMany("Opciones")
+                        .HasForeignKey("PreguntaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Pregunta");
+                });
+
+            modelBuilder.Entity("CocktailQuest.Api.Models.Pregunta", b =>
+                {
+                    b.HasOne("CocktailQuest.Api.Models.Leccion", "Leccion")
+                        .WithMany("Preguntas")
+                        .HasForeignKey("LeccionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Leccion");
+                });
+
+            modelBuilder.Entity("CocktailQuest.Api.Models.Leccion", b =>
+                {
+                    b.Navigation("Preguntas");
+                });
+
+            modelBuilder.Entity("CocktailQuest.Api.Models.Modulo", b =>
+                {
+                    b.Navigation("Lecciones");
+                });
+
+            modelBuilder.Entity("CocktailQuest.Api.Models.Pregunta", b =>
+                {
+                    b.Navigation("Opciones");
                 });
 #pragma warning restore 612, 618
         }

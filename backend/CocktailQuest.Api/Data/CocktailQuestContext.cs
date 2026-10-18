@@ -1,39 +1,27 @@
-﻿using Microsoft.EntityFrameworkCore;
-using CocktailQuest.Api.Models;
+﻿using CocktailQuest.Api.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CocktailQuest.Api.Data;
 
 public class CocktailQuestContext : DbContext
 {
-	public CocktailQuestContext(DbContextOptions<CocktailQuestContext> options)
-		: base(options)
-	{
-	}
+    public CocktailQuestContext(DbContextOptions<CocktailQuestContext> options)
+        : base(options)
+    {
+    }
 
-	// Cada DbSet representa una tabla. "=> Set<Usuario>()" evita el warning de nullable (CS8618).
-	public DbSet<Usuario> Usuarios => Set<Usuario>();
+    // Cada DbSet es una tabla; el nombre de la propiedad es el nombre de la tabla.
+    public DbSet<Usuario> Usuarios => Set<Usuario>();
+    public DbSet<Modulo> Modulos => Set<Modulo>();
+    public DbSet<Leccion> Lecciones => Set<Leccion>();
+    public DbSet<Pregunta> Preguntas => Set<Pregunta>();
+    public DbSet<Opcion> Opciones => Set<Opcion>();
 
-	protected override void OnModelCreating(ModelBuilder modelBuilder)
-	{
-		base.OnModelCreating(modelBuilder);
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
 
-		modelBuilder.Entity<Usuario>(entity =>
-		{
-			// Email y NombreUsuario no se pueden repetir entre usuarios
-			// (decisión pendiente de docs/database-design.md).
-			entity.HasIndex(u => u.Email).IsUnique();
-			entity.HasIndex(u => u.NombreUsuario).IsUnique();
-
-			entity.Property(u => u.Email)
-				.IsRequired()
-				.HasMaxLength(256);
-
-			entity.Property(u => u.NombreUsuario)
-				.IsRequired()
-				.HasMaxLength(50);
-
-			entity.Property(u => u.PasswordHash)
-				.IsRequired();
-		});
-	}
+        // Encuentra todas las clases IEntityTypeConfiguration<T> del proyecto y las aplica.
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(CocktailQuestContext).Assembly);
+    }
 }
