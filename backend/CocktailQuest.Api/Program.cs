@@ -111,6 +111,9 @@ if (app.Environment.IsDevelopment())
     using var scope = app.Services.CreateScope();
     var db = scope.ServiceProvider.GetRequiredService<CocktailQuestContext>();
     db.Database.Migrate();
+
+    // Carga el contenido inicial si la base está vacía (ver Data/ContentSeeder.cs).
+    await ContentSeeder.SeedAsync(db, app.Logger);
 }
 
 app.UseHttpsRedirection();

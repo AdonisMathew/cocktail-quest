@@ -1,0 +1,371 @@
+{
+  "modulos": [
+    {
+      "nombre": "Fundamentos: el mundo de las bebidas",
+      "descripcion": "Antes de agitar una coctelera: qué hay dentro de cada botella y cómo llegó ahí.",
+      "orden": 1,
+      "lecciones": [
+        {
+          "titulo": "Fermentadas, destiladas y licores",
+          "orden": 1,
+          "xpRecompensa": 10,
+          "contenido": "## Todo empieza con la fermentación\n\nLa **fermentación alcohólica** es el proceso en el que las levaduras se alimentan de azúcares y producen **alcohol (etanol)** y **dióxido de carbono**. Cualquier materia prima con azúcar, o con almidón que pueda convertirse en azúcar, sirve como punto de partida: uva, cebada, caña de azúcar, manzana, arroz, agave.\n\nAsí nacen las **bebidas fermentadas**: el vino (uva), la cerveza (cereales malteados, sobre todo cebada), la sidra (manzana) y el sake (arroz).\n\nLas levaduras tienen un límite: cuando el alcohol sube demasiado, dejan de trabajar. Por eso las bebidas solo fermentadas rara vez pasan del **15 %** de alcohol.\n\n## Destiladas: concentrar el alcohol\n\nPara conseguir más graduación hay que **destilar** el fermentado: calentarlo y separar el alcohol del agua (lo vemos a fondo en la próxima lección). El resultado son las **bebidas destiladas** o **espirituosas**: vodka, gin, ron, tequila, whisky, brandy. La mayoría se embotella entre el **35 y el 50 %**.\n\nCada destilado tiene un fermentado \"padre\": el brandy es vino destilado, el calvados es sidra destilada y el whisky sale de un fermentado de cereales muy parecido a una cerveza sin lúpulo.\n\n## Licores: destilado + azúcar + sabor\n\nTécnicamente, un **licor** es un destilado al que se le agregan **azúcar** y **saborizantes**: frutas, hierbas, especias, café, crema. Algunos ejemplos son el triple sec (naranja), el amaretto (sabor a almendra) y el licor de café. Su graduación varía mucho: desde un 15 % en las cremas hasta 40 % o más en algunos licores de naranja o de hierbas.\n\n> En el habla de todos los días se le dice \"licor\" a cualquier bebida fuerte, pero en la barra conviene ser preciso: el gin es un destilado, no un licor.\n\n## Fortificados: vino con refuerzo\n\nLos **vinos fortificados** son vinos a los que se les agrega un destilado, normalmente de uva, para subir su graduación hasta un 15–22 %. Los clásicos son el **jerez** (España), el **oporto** (Portugal) y el **marsala** (Italia).\n\nEl momento en que se agrega el destilado cambia el resultado. En el oporto se agrega **durante** la fermentación: el alcohol frena a las levaduras y queda azúcar sin fermentar, por eso es dulce.\n\nEl **vermut** es un pariente cercano: un vino fortificado y **aromatizado** con hierbas, especias y cortezas. Su planta característica es el ajenjo, y de ahí viene el nombre: *Wermut* significa \"ajenjo\" en alemán.",
+          "preguntas": [
+            {
+              "enunciado": "¿Qué producen las levaduras durante la fermentación alcohólica?",
+              "opciones": [
+                {
+                  "texto": "Azúcar y agua",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Alcohol y dióxido de carbono",
+                  "esCorrecta": true
+                },
+                {
+                  "texto": "Alcohol y oxígeno",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Almidón y alcohol",
+                  "esCorrecta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "¿Cuál de estas bebidas es fermentada y NO destilada?",
+              "opciones": [
+                {
+                  "texto": "Ron",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Gin",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Sidra",
+                  "esCorrecta": true
+                },
+                {
+                  "texto": "Brandy",
+                  "esCorrecta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "¿Por qué una bebida solo fermentada no llega al 40 % de alcohol?",
+              "opciones": [
+                {
+                  "texto": "Las levaduras dejan de trabajar cuando sube el alcohol",
+                  "esCorrecta": true
+                },
+                {
+                  "texto": "Lo prohíbe la ley en casi todos los países",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "El azúcar se evapora antes de fermentar",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Le falta pasar por barrica para subir de graduación",
+                  "esCorrecta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "En sentido técnico, ¿qué es un licor?",
+              "opciones": [
+                {
+                  "texto": "Cualquier bebida de más de 40 %",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Un vino al que se le agregó destilado",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Un destilado añejado en barrica",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Un destilado con azúcar y saborizantes",
+                  "esCorrecta": true
+                }
+              ]
+            },
+            {
+              "enunciado": "¿Qué es el vermut?",
+              "opciones": [
+                {
+                  "texto": "Un licor de hierbas a base de vodka",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Un vino fortificado y aromatizado",
+                  "esCorrecta": true
+                },
+                {
+                  "texto": "Un destilado de uva sin añejar",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Una cerveza aromatizada con hierbas",
+                  "esCorrecta": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "titulo": "La destilación",
+          "orden": 2,
+          "xpRecompensa": 10,
+          "contenido": "## El principio: el alcohol hierve antes que el agua\n\nEl etanol hierve a unos **78 °C**; el agua, a **100 °C**. Al calentar un fermentado, los vapores que se desprenden son mucho más ricos en alcohol que el líquido original. Esos vapores se enfrían en un condensador, vuelven a ser líquido y el resultado tiene bastante más graduación.\n\nUn detalle clave: la destilación **no crea alcohol**. Todo el alcohol de un destilado ya estaba en el fermentado; destilar solo lo **separa y lo concentra**.\n\n## Alambique o columna\n\nHay dos grandes formas de destilar:\n\n- **Alambique (*pot still*)**: trabaja por tandas. Cada carga se calienta, se destila y se vacía. Separa menos, así que el destilado conserva más sabores de la materia prima. Casi siempre se destila dos veces (a veces tres). Es el método del whisky de malta escocés, el cognac, el mezcal y muchos tequilas.\n- **Columna (destilación continua)**: el fermentado entra por un lado y el destilado sale por el otro, sin parar. Logra graduaciones mucho más altas y un resultado más **neutro y liviano**. Es la base de casi todo el vodka, del alcohol neutro con el que se hace el gin y de muchos rones livianos.\n\nNinguno es \"mejor\": el alambique busca **carácter**; la columna, **pureza y volumen**.\n\n## Cabezas, corazón y colas\n\nLo que sale del alambique no es todo igual. El destilador lo separa en tres partes:\n\n- **Cabezas**: lo primero que sale. Tienen compuestos muy volátiles, de olor fuerte y desagradable (como el acetaldehído y parte del metanol). Se descartan.\n- **Corazón**: la parte central y la que se aprovecha. Es el alcohol limpio, con los aromas buscados.\n- **Colas**: lo último. Tienen compuestos más pesados y aceitosos. Se descartan o se vuelven a destilar en la tanda siguiente.\n\nDecidir dónde cortar entre una parte y otra es una de las decisiones más importantes del maestro destilador: define buena parte del estilo.\n\n## Cómo se mide la graduación\n\n- **ABV** (*Alcohol By Volume*, o \"% vol.\"): el porcentaje de alcohol sobre el volumen total. Una botella al 40 % tiene 40 ml de alcohol cada 100 ml. Es la medida que se usa en Argentina y en casi todo el mundo.\n- **Proof** (Estados Unidos): es el doble del ABV. Un 40 % equivale a **80 proof**, y un 50 % a **100 proof**.",
+          "preguntas": [
+            {
+              "enunciado": "¿En qué principio se basa la destilación?",
+              "opciones": [
+                {
+                  "texto": "El alcohol hierve a menor temperatura que el agua",
+                  "esCorrecta": true
+                },
+                {
+                  "texto": "El alcohol es más pesado que el agua",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "El calor hace que las levaduras produzcan más alcohol",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "El vapor transforma el azúcar en alcohol",
+                  "esCorrecta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Una botella de whiskey estadounidense dice \"100 proof\". ¿Qué graduación tiene en % ABV?",
+              "opciones": [
+                {
+                  "texto": "100 %",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "80 %",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "50 %",
+                  "esCorrecta": true
+                },
+                {
+                  "texto": "40 %",
+                  "esCorrecta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Frente a un destilado de columna, ¿qué caracteriza a uno de alambique?",
+              "opciones": [
+                {
+                  "texto": "Siempre tiene más graduación",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Es completamente neutro",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Se produce sin parar, en forma continua",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Conserva más sabores de la materia prima",
+                  "esCorrecta": true
+                }
+              ]
+            },
+            {
+              "enunciado": "¿Qué parte de la destilación se aprovecha para el producto final?",
+              "opciones": [
+                {
+                  "texto": "Las cabezas",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "El corazón",
+                  "esCorrecta": true
+                },
+                {
+                  "texto": "Las colas",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Las cabezas y las colas juntas",
+                  "esCorrecta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "¿Qué hace la destilación con el alcohol del fermentado?",
+              "opciones": [
+                {
+                  "texto": "Lo crea a partir del azúcar",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Lo diluye para bajar la graduación",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Lo separa y lo concentra",
+                  "esCorrecta": true
+                },
+                {
+                  "texto": "Lo transforma en otro tipo de alcohol",
+                  "esCorrecta": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "titulo": "Los destilados base",
+          "orden": 3,
+          "xpRecompensa": 15,
+          "contenido": "## Vodka\n\n- **Materia prima:** cualquier cosa fermentable. Lo más común son cereales (trigo, centeno, maíz) y papa.\n- **Qué lo define:** se destila a una graduación muy alta y se filtra para que quede lo más **neutro** posible. Normalmente no se añeja.\n\n## Gin\n\n- **Materia prima:** alcohol neutro, casi siempre de cereales.\n- **Qué lo define:** se aromatiza con **botánicos**, y el **enebro** es obligatorio: tiene que ser el sabor dominante. Otros botánicos clásicos son las semillas de cilantro, las cáscaras de cítricos y la raíz de angélica.\n- **London Dry** es un estilo, no un lugar: los botánicos se incorporan solo por destilación y después no se le puede agregar color ni saborizantes. Puede hacerse en cualquier parte del mundo.\n\n## Ron\n\n- **Materia prima:** caña de azúcar. La mayoría se hace con **melaza**, un subproducto de la fabricación de azúcar. Algunos usan **jugo fresco de caña**, como el *rhum agricole* de las Antillas francesas (la cachaça brasileña también sale del jugo de caña).\n- **Qué lo define:** su estilo cambia mucho según la tradición. La española (Cuba, Puerto Rico) da rones livianos; la inglesa (Jamaica, Barbados), rones más intensos; la francesa trabaja con jugo de caña.\n- Puede ser **blanco** o **añejado** en barrica. Un ron blanco puede haber pasado por madera y después filtrarse para quitarle el color.\n\n## Tequila y mezcal\n\nLos dos salen del **agave**, una planta (no es un cactus) cuyo corazón, la **piña**, se cocina para convertir sus reservas en azúcares fermentables.\n\n- **Tequila:** solo puede hacerse con **agave azul** (*Agave tequilana* Weber) y solo en zonas autorizadas de México, principalmente **Jalisco**. Las piñas se cocinan al vapor. Si la etiqueta dice **100 % agave**, todo el azúcar viene del agave; si no, es un tequila \"mixto\", que puede tener hasta un 49 % de otros azúcares.\n- **Según su añejamiento:** **blanco** (sin añejar), **reposado** (de 2 meses a 1 año en roble), **añejo** (de 1 a 3 años) y **extra añejo** (más de 3 años).\n- **Mezcal:** puede hacerse con muchas especies de agave (la más común es el espadín) y gran parte se produce en **Oaxaca**. Tradicionalmente, las piñas se cocinan en **hornos de tierra con leña**: de ahí su típico sabor **ahumado**.\n\n## Whisky\n\n- **Materia prima:** cereales: cebada malteada, maíz, centeno, trigo.\n- **Qué lo define:** se añeja en **barricas de roble**, que le dan color y buena parte de sus aromas (vainilla, caramelo, madera).\n- **Whisky o whiskey:** en Escocia y Japón se escribe *whisky*; en Irlanda y, en general, en Estados Unidos, *whiskey*.\n\nLos estilos más importantes:\n\n- **Scotch (Escocia):** mínimo 3 años en roble. El *single malt* es 100 % cebada malteada, de una sola destilería y destilado en alambique. En algunas regiones, como Islay, la malta se seca con humo de **turba**: de ahí los whiskies ahumados.\n- **Bourbon (Estados Unidos):** al menos **51 % de maíz** y añejado en barricas **nuevas** de roble quemadas por dentro. No hace falta que sea de Kentucky: puede hacerse en cualquier parte del país.\n- **Irish whiskey (Irlanda):** muchos son de triple destilación, lo que suele dar un perfil más suave.\n\n## Brandy\n\n- **Materia prima:** fruta fermentada. Si no se aclara otra fruta, es de **uva**: vino destilado.\n- **Qué lo define:** en general se añeja en roble (el pisco peruano es una excepción: no pasa por madera). Los más famosos tienen denominación de origen: **cognac** y **armagnac** (Francia), **brandy de Jerez** (España) y **pisco** (Perú y Chile).\n- Con otras frutas: el **calvados** es un brandy de manzana (a veces, también de pera).",
+          "preguntas": [
+            {
+              "enunciado": "¿Qué se busca al producir vodka?",
+              "opciones": [
+                {
+                  "texto": "Que tenga sabor a enebro",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Que sea lo más neutro posible",
+                  "esCorrecta": true
+                },
+                {
+                  "texto": "Que tome color de la barrica",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Que conserve el sabor de la caña",
+                  "esCorrecta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "¿Qué botánico es obligatorio en el gin?",
+              "opciones": [
+                {
+                  "texto": "Cilantro",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Anís estrellado",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Cáscara de naranja",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Enebro",
+                  "esCorrecta": true
+                }
+              ]
+            },
+            {
+              "enunciado": "¿De qué se hace la mayoría de los rones?",
+              "opciones": [
+                {
+                  "texto": "Melaza de caña de azúcar",
+                  "esCorrecta": true
+                },
+                {
+                  "texto": "Jugo de manzana fermentado",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Miel de abeja",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Remolacha azucarera",
+                  "esCorrecta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "¿Con qué planta se hace el tequila?",
+              "opciones": [
+                {
+                  "texto": "Agave espadín",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Cactus nopal",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Agave azul",
+                  "esCorrecta": true
+                },
+                {
+                  "texto": "Cualquier especie de agave",
+                  "esCorrecta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "¿Qué cereal tiene que ser al menos el 51 % de un bourbon?",
+              "opciones": [
+                {
+                  "texto": "Cebada",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Centeno",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Trigo",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Maíz",
+                  "esCorrecta": true
+                }
+              ]
+            },
+            {
+              "enunciado": "Si una carta dice solo \"brandy\", ¿de qué fruta está hecho?",
+              "opciones": [
+                {
+                  "texto": "Manzana",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Uva",
+                  "esCorrecta": true
+                },
+                {
+                  "texto": "Pera",
+                  "esCorrecta": false
+                },
+                {
+                  "texto": "Ciruela",
+                  "esCorrecta": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
