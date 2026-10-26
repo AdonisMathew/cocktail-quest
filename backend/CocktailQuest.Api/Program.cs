@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using System.Reflection;
 using System.Text;
 using CocktailQuest.Api.Configuration;
@@ -66,7 +67,10 @@ builder.Services.AddAuthorization();
 builder.Services.AddScoped<IPasswordHasher<Usuario>, PasswordHasher<Usuario>>();
 builder.Services.AddSingleton<ITokenService, TokenService>();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+        // Los enums viajan como texto ("OpcionMultiple") en vez de número (0).
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 
 // ---------- Swagger ----------
 builder.Services.AddEndpointsApiExplorer();

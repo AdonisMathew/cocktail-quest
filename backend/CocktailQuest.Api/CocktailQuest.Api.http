@@ -25,3 +25,15 @@ Authorization: Bearer TOKEN
 Accept: application/json
 
 ###
+
+### Módulos con sus lecciones (reemplazá TOKEN)
+GET {{CocktailQuest.Api_HostAddress}}/api/modulos
+Authorization: Bearer TOKEN
+Accept: application/json
+
+### Una lección con sus preguntas (reemplazá TOKEN)
+GET {{CocktailQuest.Api_HostAddress}}/api/lecciones/1
+Authorization: Bearer TOKEN
+Accept: application/json
+
+###
