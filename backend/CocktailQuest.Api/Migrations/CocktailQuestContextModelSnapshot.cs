@@ -22,6 +22,38 @@ namespace CocktailQuest.Api.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("CocktailQuest.Api.Models.IntentoQuiz", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Aprobado")
+                        .HasColumnType("boolean");
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("LeccionId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Puntaje")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LeccionId");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("IntentosQuiz");
+                });
+
             modelBuilder.Entity("CocktailQuest.Api.Models.Leccion", b =>
                 {
                     b.Property<int>("Id")
@@ -139,6 +171,71 @@ namespace CocktailQuest.Api.Migrations
                     b.ToTable("Preguntas");
                 });
 
+            modelBuilder.Entity("CocktailQuest.Api.Models.ProgresoLeccion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Completada")
+                        .HasColumnType("boolean");
+
+                    b.Property<DateTime?>("FechaCompletado")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("LeccionId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("MejorPuntaje")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LeccionId");
+
+                    b.HasIndex("UsuarioId", "LeccionId")
+                        .IsUnique();
+
+                    b.ToTable("ProgresosLeccion");
+                });
+
+            modelBuilder.Entity("CocktailQuest.Api.Models.RespuestaUsuario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("EsCorrecta")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("IntentoQuizId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("OpcionSeleccionadaId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("PreguntaId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OpcionSeleccionadaId");
+
+                    b.HasIndex("PreguntaId");
+
+                    b.HasIndex("IntentoQuizId", "PreguntaId")
+                        .IsUnique();
+
+                    b.ToTable("RespuestasUsuario");
+                });
+
             modelBuilder.Entity("CocktailQuest.Api.Models.Usuario", b =>
                 {
                     b.Property<int>("Id")
@@ -181,6 +278,25 @@ namespace CocktailQuest.Api.Migrations
                     b.ToTable("Usuarios");
                 });
 
+            modelBuilder.Entity("CocktailQuest.Api.Models.IntentoQuiz", b =>
+                {
+                    b.HasOne("CocktailQuest.Api.Models.Leccion", "Leccion")
+                        .WithMany()
+                        .HasForeignKey("LeccionId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("CocktailQuest.Api.Models.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Leccion");
+
+                    b.Navigation("Usuario");
+                });
+
             modelBuilder.Entity("CocktailQuest.Api.Models.Leccion", b =>
                 {
                     b.HasOne("CocktailQuest.Api.Models.Modulo", "Modulo")
@@ -212,6 +328,57 @@ namespace CocktailQuest.Api.Migrations
                         .IsRequired();
 
                     b.Navigation("Leccion");
+                });
+
+            modelBuilder.Entity("CocktailQuest.Api.Models.ProgresoLeccion", b =>
+                {
+                    b.HasOne("CocktailQuest.Api.Models.Leccion", "Leccion")
+                        .WithMany()
+                        .HasForeignKey("LeccionId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("CocktailQuest.Api.Models.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Leccion");
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("CocktailQuest.Api.Models.RespuestaUsuario", b =>
+                {
+                    b.HasOne("CocktailQuest.Api.Models.IntentoQuiz", "IntentoQuiz")
+                        .WithMany("Respuestas")
+                        .HasForeignKey("IntentoQuizId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CocktailQuest.Api.Models.Opcion", "OpcionSeleccionada")
+                        .WithMany()
+                        .HasForeignKey("OpcionSeleccionadaId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("CocktailQuest.Api.Models.Pregunta", "Pregunta")
+                        .WithMany()
+                        .HasForeignKey("PreguntaId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("IntentoQuiz");
+
+                    b.Navigation("OpcionSeleccionada");
+
+                    b.Navigation("Pregunta");
+                });
+
+            modelBuilder.Entity("CocktailQuest.Api.Models.IntentoQuiz", b =>
+                {
+                    b.Navigation("Respuestas");
                 });
 
             modelBuilder.Entity("CocktailQuest.Api.Models.Leccion", b =>
