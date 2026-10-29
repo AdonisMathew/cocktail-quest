@@ -76,6 +76,12 @@ builder.Services.AddOptions<QuizSettings>()
     .ValidateOnStart();
 builder.Services.AddSingleton<IQuizService, QuizService>();
 
+// ---------- Controllers ----------
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+        // Los enums viajan como texto ("OpcionMultiple") en vez de número (0).
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
+
 // ---------- Swagger ----------
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
