@@ -67,10 +67,14 @@ builder.Services.AddAuthorization();
 builder.Services.AddScoped<IPasswordHasher<Usuario>, PasswordHasher<Usuario>>();
 builder.Services.AddSingleton<ITokenService, TokenService>();
 
-builder.Services.AddControllers()
-    .AddJsonOptions(options =>
-        // Los enums viajan como texto ("OpcionMultiple") en vez de número (0).
-        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
+// Quiz: el umbral de aprobación sale de la sección "Quiz" de appsettings.
+// Si el valor no tiene sentido, la API no arranca (mejor enterarse al levantarla).
+builder.Services.AddOptions<QuizSettings>()
+    .Bind(builder.Configuration.GetSection(QuizSettings.SectionName))
+    .Validate(s => s.PorcentajeAprobacion is >= 1 and <= 100,
+        "'Quiz:PorcentajeAprobacion' tiene que estar entre 1 y 100.")
+    .ValidateOnStart();
+builder.Services.AddSingleton<IQuizService, QuizService>();
 
 // ---------- Swagger ----------
 builder.Services.AddEndpointsApiExplorer();
