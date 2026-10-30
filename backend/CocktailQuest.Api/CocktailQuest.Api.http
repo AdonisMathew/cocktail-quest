@@ -36,4 +36,19 @@ GET {{CocktailQuest.Api_HostAddress}}/api/lecciones/1
 Authorization: Bearer TOKEN
 Accept: application/json
 
+### Rendir el quiz de la lección 1: 4 de 5 bien, la última mal a propósito (reemplazá TOKEN)
+POST {{CocktailQuest.Api_HostAddress}}/api/lecciones/1/quiz
+Authorization: Bearer TOKEN
+Content-Type: application/json
+
+{
+  "respuestas": [
+    { "preguntaId": 1, "opcionId": 2 },
+    { "preguntaId": 2, "opcionId": 7 },
+    { "preguntaId": 3, "opcionId": 9 },
+    { "preguntaId": 4, "opcionId": 16 },
+    { "preguntaId": 5, "opcionId": 17 }
+  ]
+}
+
 ###
