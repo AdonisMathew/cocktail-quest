@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="CocktailQuest.Api/CocktailQuest.Api.csproj" />
+  <Project Path="CocktailQuest.Api.Tests/CocktailQuest.Api.Tests.csproj" />
+</Solution>

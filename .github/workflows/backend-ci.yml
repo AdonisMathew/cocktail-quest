@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: backend/CocktailQuest.Api
+        working-directory: backend
     env:
       # Valores de prueba solo para el CI: no se conecta a ninguna base.
       ConnectionStrings__DefaultConnection: "Host=localhost;Database=ci;Username=ci;Password=ci"
@@ -25,13 +25,17 @@ jobs:
         with:
           dotnet-version: "10.0.x"
 
+      # La solución junta la API y las pruebas: se restaura y se compila todo junto.
       - name: Restaurar paquetes
-        run: dotnet restore
+        run: dotnet restore CocktailQuest.slnx
 
       - name: Compilar
-        run: dotnet build --no-restore --configuration Release
+        run: dotnet build CocktailQuest.slnx --no-restore --configuration Release
+
+      - name: Correr las pruebas
+        run: dotnet test CocktailQuest.slnx --no-build --configuration Release
 
       - name: Verificar que no falten migraciones
         run: |
           dotnet tool install --global dotnet-ef --version "10.*"
-          dotnet ef migrations has-pending-model-changes --no-build --configuration Release
+          dotnet ef migrations has-pending-model-changes --project CocktailQuest.Api --no-build --configuration Release
