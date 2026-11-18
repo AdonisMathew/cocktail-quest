@@ -162,24 +162,26 @@ public class QuizServiceTests
         Assert.Throws<ArgumentException>(() => _servicio.Corregir(leccion, incompletas));
     }
 
-    // ---------- Tu prueba ----------
+    // ---------- Detalle de la corrección ----------
 
-    // Te toca: completá los pasos 2 y 3 y borrá el Skip de la línea [Fact(...)].
-    // Es la pregunta B del repaso: aunque el usuario responda mal,
-    // el resultado le muestra cuál era la correcta.
-    [Fact(Skip = "Te toca escribirla")]
+    // Aunque el usuario responda mal, el resultado le muestra cuál era la correcta:
+    // así aprende del error, como en Duolingo.
+    [Fact]
     public void Corregir_RespuestaMal_MuestraLaCorrecta()
     {
-        // 1. Preparar: 3 preguntas, las 2 primeras bien y la 3 mal.
+        // Preparar: 3 preguntas, las 2 primeras bien y la 3 mal.
         var leccion = CrearLeccion(cantidadPreguntas: 3);
         var respuestas = Responder(leccion, correctas: 2);
 
-        // 2. Ejecutar: corregí con _servicio.Corregir(...) y guardá el resultado.
+        // Ejecutar
+        var resultado = _servicio.Corregir(leccion, respuestas);
 
-        // 3. Verificar: buscá en resultado.Detalle la corrección de la pregunta 3 y comprobá que:
-        //    - EsCorrecta sea false
-        //    - OpcionElegidaId sea Incorrecta(3)
-        //    - OpcionCorrectaId sea Correcta(3)
+        // Verificar: la pregunta 3 figura mal, con la opción que eligió y la correcta.
+        var pregunta3 = resultado.Detalle.Single(d => d.PreguntaId == 3);
+
+        Assert.False(pregunta3.EsCorrecta);
+        Assert.Equal(Incorrecta(3), pregunta3.OpcionElegidaId);
+        Assert.Equal(Correcta(3), pregunta3.OpcionCorrectaId);
     }
 
     // ---------- Ayudantes ----------
